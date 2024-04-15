@@ -10,6 +10,7 @@ Aqui estão algumas operacões matemáticas:
 [ 4 ] Divisão
     ''')
 
+
 escolha = int(input("Agora, digite o número correspondente a operação que deseja fazer: "))
 
 if escolha >=1 and escolha <=4:
