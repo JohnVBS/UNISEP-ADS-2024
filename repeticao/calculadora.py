@@ -1,4 +1,4 @@
-# alculadora.py
+# calculadora.py
 
 opcao = input('''Selecione uma das opções:
 [ 1 ] Adição
