@@ -46,7 +46,7 @@ while True:    # "while" para toda vez que terminar um cálculo, o programa volt
                     flag = flag + 1
                 else:
                     if c.upper() != "P":
-                        cal = cal - float(c)
+                        cal = cal - float(c)    # "cal" já terá seu valor modificado pelo input da variável "c", então ele irá subtrair com o próximo valor de "c" e substituirá o resultado na mesma variável "cal".
                     else:
                         print(cal)
                         break
@@ -63,7 +63,7 @@ while True:    # "while" para toda vez que terminar um cálculo, o programa volt
                     flag = flag + 1
                 else:
                     if c.upper() != "P":
-                        cal = cal * float(c)
+                        cal = cal * float(c)    # "cal" já terá seu valor modificado pelo input da variável "c", então ele irá multiplicar com o próximo valor de "c" e substituirá o resultado na mesma variável "cal".
                     else:
                         print(cal)
                         break
@@ -80,7 +80,7 @@ while True:    # "while" para toda vez que terminar um cálculo, o programa volt
                     flag = flag + 1
                 else:
                     if c.upper() != "P":
-                        cal = cal // float(c)
+                        cal = cal // float(c)    # "cal" já terá seu valor modificado pelo input da variável "c", então ele irá dividir com o próximo valor de "c" e substituirá o resultado na mesma variável "cal".
                     else:
                         print(cal)
                         break
