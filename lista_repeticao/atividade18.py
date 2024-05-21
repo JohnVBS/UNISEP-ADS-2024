@@ -1,14 +1,13 @@
 #atividade18.py
 
-lista = []
+limite = int(input("Digite até quantos: "))
+maior = 0
+qtd_maior = 0
 
-while True:
-    qua = int(input("Insira a quantidade de elementos que a lista deve ter: "))
+for _ in range(limite):
+    numero = int(input("Digite um numero: "))
+    if numero > maior:
+        maior = numero
+        qtd_maior += 1
 
-    for n in range(qua):
-        num = float(input("Insira um número ou digite 'X' para sair: "))
-        lista.append(num)
-
-    lista.sort()
-
-    print(lista(qua))
+print(f"O maior foi {maior} e foi digitado {qtd_maior} vezes")
