@@ -91,7 +91,7 @@ def procurar_nome():
 def media_b1():
     media = 0
     for dados in alunos.items():
-        media += dados['b1']
+        media += (dados['b1'])
     media = media // dados
     print(media)
 
