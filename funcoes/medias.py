@@ -89,11 +89,14 @@ def procurar_nome():
 
 
 def media_b1():
-    media = 0
-    for dados in alunos.items():
-        media += (dados['b1'])
-    media = media // dados
-    print(media)
+    div = []
+    div.append(alunos)
+    soma = media = 0.0
+    for ra, dados in alunos.items():
+        dados = alunos[ra]
+        soma += dados['b1']
+    media = soma / len(div)
+    print(media) 
 
 
 if __name__ == '__main__':
