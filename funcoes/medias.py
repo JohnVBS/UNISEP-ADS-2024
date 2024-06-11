@@ -15,6 +15,7 @@ def menu():
         8 - media da turma B1
         9 - media da turma B2
         10 - media da turma GERAL
+        11 - Diario da Turma
         0 - sair''')
         opt = int(input("\nSelecione uma das opcoes: "))
         return opt
@@ -52,6 +53,7 @@ def remover_aluno():
         alunos.pop(rem)
     else:
         print("Esse Aluno nao esta listado")
+    input('Pressione qualquer tecla para continuar')
 
 
 def procurar_aluno():
@@ -80,8 +82,9 @@ def reprovados():
 
 def procurar_nome():
     nome = input('Insira o nome do Aluno que deseja procurar: ')
+    nome = nome.upper
     for ra, dados in alunos.items():
-        if dados['nome'] == nome:
+        if dados['nome'].upper() == nome:
             print(f"RA: {ra} - Nome: {dados['nome']} - B1: {dados['b1']} - B2: {dados['b2']}")
         else:
             print("Esse Aluno nao esta listado")
@@ -89,14 +92,57 @@ def procurar_nome():
 
 
 def media_b1():
-    div = []
-    div.append(alunos)
-    soma = media = 0.0
+    soma = 0
+    qtd = 0
     for ra, dados in alunos.items():
-        dados = alunos[ra]
         soma += dados['b1']
-    media = soma / len(div)
-    print(media) 
+        qtd += 1
+    media1 = soma / qtd
+    alunos[ra] += media1
+    print(f'A media de B1 e: {media1:.2f}')
+    input('Pressione qualquer tecla para continuar')
+
+
+def media_b2():
+    soma = 0
+    qtd = 0
+    for ra, dados in alunos.values():
+        soma += dados['b2']
+        qtd += 1
+    media2 = soma / qtd
+    alunos[ra] += media2
+    print(f'A media de B2 e: {media2:.2f}')
+    input('Pressione qualquer tecla para continuar')
+
+
+def media_geral():
+    soma = 0
+    qtd = 0
+    for ra, dados in alunos.values():
+        soma += (dados['b1'] + dados['b2'])
+        qtd += 1
+    mediag = soma / qtd
+    alunos[ra] += mediag
+    print(f'A media de B2 e: {mediag:.2f}')
+    input('Pressione qualquer tecla para continuar')
+
+
+def diario_da_turma():
+    for ra, dados, media1, media2, mediag in alunos.items():
+        dados = alunos[ra]
+        dados['media'] = (dados['b1'] + dados['b2']) / 2
+
+    print("--------------------------------------------------------")
+    print("                    Diario da Turma                     ")
+    print("--------------------------------------------------------")
+    print("RA      NOME                         B1     B2     MEDIA")
+    print("--------------------------------------------------------")
+    for ra, dados in alunos.items():
+        print(f"{ra}    Aluno  {dados['nome']}                  {dados['b1']}    {dados['b2']}    {dados['media']}" )
+    print("--------------------------------------------------------")
+    print(f"                     Medias da Turma {media1}   {media2}    {mediag}                ")
+    print("--------------------------------------------------------")
+    input('Pressione qualquer tecla para continuar')
 
 
 if __name__ == '__main__':
@@ -132,6 +178,18 @@ if __name__ == '__main__':
 
             case 8:
                 media_b1()
+
+
+            case 9:
+                media_b2()
+
+
+            case 10:
+                media_geral()
+
+
+            case 11:
+                diario_da_turma()
 
                 
             case 0:
