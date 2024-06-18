@@ -100,34 +100,37 @@ def media_b1():
     media1 = soma / qtd
     print(f'A media de B1 e: {media1:.2f}')
     input('Pressione qualquer tecla para continuar')
+    return media1
 
 
 def media_b2():
     soma = 0
     qtd = 0
-    for ra, dados in alunos.values():
+    for ra, dados in alunos.items():
         soma += dados['b2']
         qtd += 1
     media2 = soma / qtd
     print(f'A media de B2 e: {media2:.2f}')
     input('Pressione qualquer tecla para continuar')
+    return media2
 
 
 def media_geral():
     soma = 0
     qtd = 0
-    for ra, dados in alunos.values():
+    for ra, dados in alunos.items():
         soma += (dados['b1'] + dados['b2'])
         qtd += 1
     mediag = soma / qtd
-    print(f'A media de B2 e: {mediag:.2f}')
+    print(f'A media geral e: {mediag:.2f}')
     input('Pressione qualquer tecla para continuar')
+    return mediag
 
 
 def diario_da_turma():
-    media1 = media_b1(media1)
-    media2 = media_b2(media2)
-    mediag = media_geral(mediag)
+    m1 = media_b1()
+    m2 = media_b2()
+    mg = media_geral()
     for ra, dados in alunos.items():
         dados = alunos[ra]
         dados['media'] = (dados['b1'] + dados['b2']) / 2
@@ -140,7 +143,7 @@ def diario_da_turma():
     for ra, dados in alunos.items():
         print(f"{ra}    Aluno  {dados['nome']}                  {dados['b1']}    {dados['b2']}    {dados['media']}" )
     print("--------------------------------------------------------")
-    print(f"                   Medias da Turma   {media1}   {media2}    {mediag}                ")
+    print(f"                   Medias da Turma   {m1}   {m2}    {mg}                ")
     print("--------------------------------------------------------")
     input('Pressione qualquer tecla para continuar')
 
