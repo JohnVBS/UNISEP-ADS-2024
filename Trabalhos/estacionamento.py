@@ -95,4 +95,5 @@ if __name__ == '__main__':
 
 
             case 0:
+                # Caso o usuario digite 0, o programa vai terminar
                 break
